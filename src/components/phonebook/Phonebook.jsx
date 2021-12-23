@@ -3,8 +3,8 @@ import { Container } from '../container';
 import { Section } from '../section';
 import { ContactForm } from '../contactForm';
 import { Contacts } from '../contacts';
-import { ContactList } from '../contactList';
 import { Filter } from '../filter';
+import { ContactList } from '../contactList';
 
 export class Phonebook extends Component {
   state = {
@@ -92,7 +92,7 @@ export class Phonebook extends Component {
           <Contacts title="Contacts">
             {contacts.length > 1 && (
               <Filter
-                onFilter={filterValue}
+                filterValue={filterValue}
                 onFilterChange={handleFilterChange}
                 onBlur={getBlur}
               />

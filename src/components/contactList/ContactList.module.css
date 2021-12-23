@@ -6,8 +6,8 @@
 .Item {
   box-shadow: 20px 0 20px -20px #000 inset, -20px 0 20px -20px #000 inset;
   border-bottom: 1px solid rgb(116, 116, 116);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   padding: 10px;
   margin: 10px;
 }

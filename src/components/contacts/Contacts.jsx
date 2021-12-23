@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
+
 export const Contacts = ({ children, title }) => {
   return (
     <div>
@@ -6,4 +8,9 @@ export const Contacts = ({ children, title }) => {
       {children}
     </div>
   );
+};
+
+Contacts.propTypes = {
+  children: PropTypes.node,
+  title: PropTypes.string.isRequired,
 };

@@ -1,8 +1,11 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import s from './ContactForm.module.css';
 
 export class ContactForm extends Component {
+  static propTypes = { onSubmitContact: PropTypes.func.isRequired };
+
   state = {
     inputName: '',
     inputNumber: '',
