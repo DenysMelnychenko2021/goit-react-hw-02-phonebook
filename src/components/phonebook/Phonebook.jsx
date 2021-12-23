@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Container } from '../container';
+import { Section } from '../section';
 import { ContactForm } from '../contactForm';
 import { Contacts } from '../contacts';
 import { ContactList } from '../contactList';
@@ -42,14 +43,12 @@ export class Phonebook extends Component {
 
   addContactSubmit = newContact => {
     const { contacts } = this.state;
-    if (
-      contacts.find(
-        contact =>
-          newContact.inputName === contact.inputName ||
-          newContact.inputNumber === contact.inputNumber,
-      )
-    )
+    if (contacts.find(contact => newContact.inputName === contact.inputName))
       alert(`${newContact.inputName} is already in contacts`);
+    else if (
+      contacts.find(contact => newContact.inputNumber === contact.inputNumber)
+    )
+      alert(`${newContact.inputNumber} is already in contacts`);
     else
       this.setState(({ contacts }) => ({
         contacts: [{ ...newContact }, ...contacts],
@@ -86,21 +85,28 @@ export class Phonebook extends Component {
 
     return (
       <Container title="Phonebook">
-        <ContactForm onSubmitContact={addContactSubmit} />
-        <Contacts title="Contacts">
-          {contacts.length > 1 && (
-            <Filter
-              onFilter={filterValue}
-              onFilterChange={handleFilterChange}
-              onBlur={getBlur}
-            />
-          )}
-          {contacts.length > 0 ? (
-            <ContactList contacts={visibleContacts} onDelete={getClickDelete} />
-          ) : (
-            'There are no contacts in the phone book. Please add a contact'
-          )}
-        </Contacts>
+        <Section>
+          <ContactForm onSubmitContact={addContactSubmit} />
+        </Section>
+        <Section>
+          <Contacts title="Contacts">
+            {contacts.length > 1 && (
+              <Filter
+                onFilter={filterValue}
+                onFilterChange={handleFilterChange}
+                onBlur={getBlur}
+              />
+            )}
+            {contacts.length > 0 ? (
+              <ContactList
+                contacts={visibleContacts}
+                onDelete={getClickDelete}
+              />
+            ) : (
+              'There are no contacts in the phone book. Please add a contact'
+            )}
+          </Contacts>
+        </Section>
       </Container>
     );
   }

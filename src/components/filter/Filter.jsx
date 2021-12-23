@@ -11,7 +11,7 @@ export class Filter extends Component {
         value={onFilter}
         onChange={onFilterChange}
         onBlur={onBlur}
-        placeholder="Contact search"
+        placeholder="Find contacts by name"
       />
     );
   }
